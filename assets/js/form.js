@@ -1,0 +1,3 @@
+fuction adicionarTelefoneTela(telefone){
+	
+}
