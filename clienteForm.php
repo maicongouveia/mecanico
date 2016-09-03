@@ -25,23 +25,19 @@
 	<div class='row'>
 		<div class='col-md-8 col-md-offset-2'>
 			<label for="registroCliente" id='tituloRegistro' class='col-md-2'>CPF:</label>
-			<input class='form-group input-md col-md-3' type="text" id="registroCliente" maxlength='18' onkeypress='mascara(this,"###.###.###-##")'>	
+			<input class='form-group input-md col-md-3' type="text" id="registroCliente" maxlength='14' onkeypress='mascara(this,"###.###.###-##")'>	
 		</div>
 	</div>
 
 	<div class='col-md-4' style='border-right: 1px solid black;'>
-	<h3 class='text-center'> Telefone</h3>
+	<h3 class='text-center'>Telefone</h3>
 		<div class='row'>
-			<label for="telefoneCliente" class='col-md-3'>Telefone:</label>
-			<input class='form-group input-md col-md-6	' type="text" id="telefoneCliente" name='telefoneCliente' maxlength="13" onkeypress="mascara(this,'##-####-#####')" >	
-			<a href="#" onclick="#" class='btn btn-default col-md-offset-1'> <span class='glyphicon glyphicon-plus'></span></a>
+			<label for="telefoneCliente" class='col-md-3' style='padding: 5px; font-size: 20px;'>Telefone:</label>
+			<input class='form-group input-md col-md-6' type="text" id="telefoneCliente" name='telefoneCliente' maxlength="13" onkeypress="mascara(this,'##-####-#####')" style='padding: 5px;'>	
+			<a href="#" id='botaoAddTelefone' onclick="adicionarTelefoneTela(1)" class='btn btn-default col-md-offset-1'> <span class='glyphicon glyphicon-plus'></span></a>
 		</div>
-		<div class='col-md-12' id='telefones'>
-			<div class='row' style='border: 1px solid black;border-radius: 20px; padding: 10px;'>
-				<font class='col-md-7' id='telefone1' style='font-size: 18px; padding: 5px; font-weight: bold;'>(11)97243-1309</font>
-				<a href="#" onclick="#" class='btn btn-default col-md-2'> <span class='glyphicon glyphicon-edit'></span></a>
-				<a href="#" onclick="#" class='btn btn-default col-md-offset-1 col-md-2'> <span class='glyphicon glyphicon-remove'></span></a>
-			</div>
+		<div class='col-md-12' id='divTelefones'>
+
 		</div>
 	</div>
 	
@@ -72,46 +68,19 @@
 			<input class='form-group input-md col-md-8' type="text" id="cidade" name='cidade' >	
 		</div>
 		<div class='row'>
-			<a href="#" class='btn btn-success col-md-12'>Adicionar Endereço <span class='glyphicon glyphicon-plus'></span></a>
+			<a href="#" onclick='adicionarEndereco();' class='btn btn-success col-md-12'>Adicionar Endereço <span class='glyphicon glyphicon-plus'></span></a>
 		</div>
 	</div>
 
 	<div class='col-md-4' style='border-right: 1px solid black;'>
-	<h3 class='text-center'> Email's</h3>
+	<h3 class='text-center'>Email's</h3>
 		<div class='row'>
-			<label for="emailCliente" class='col-md-3'>Email:</label>
-			<input class='form-group input-md col-md-6' type="email" id="emailCliente" name='emailCliente'>	
-			<a href="#" onclick="#" class='btn btn-default col-md-offset-1'> <span class='glyphicon glyphicon-plus'></span></a>
+			<label for="emailCliente" class='col-md-3' style='padding: 5px; font-size: 20px;'>Email:</label>
+			<input class='form-group input-md col-md-6' type="email" id="emailCliente" name='emailCliente' style='padding: 5px;'>	
+			<a href="#divEmail" onclick="adicionarEmailTela(1);" id='botaoAddEmail' class='btn btn-default col-md-offset-1'> <span class='glyphicon glyphicon-plus'></span></a>
 		</div>
-		<div class='col-md-12' id='emails'>
-			<div style='border: 1px solid black; border-radius: 20px; padding: 20px;'>
-
-			<div class='row'>
-				<font class='col-md-7' id='telefone1' style='font-size: 18px; font-weight: bold;'>
-					contato@maicongouveia.co...
-				</font>
-			</div>
-			<div class='row'>
-				<a href="#" onclick="#" class='btn btn-default col-md-offset-3 col-md-2'> <span class='glyphicon glyphicon-edit'></span></a>
-				<a href="#" onclick="#" class='btn btn-default col-md-offset-1 col-md-2'> <span class='glyphicon glyphicon-remove'></span></a>
-			</div>
-				
-			</div>
-		</div>
-		<div class='col-md-12' id='emails'>
-			<div style='border: 1px solid black; border-radius: 20px; padding: 20px;'>
-
-			<div class='row'>
-				<font class='col-md-7' id='telefone1' style='font-size: 18px; font-weight: bold;'>
-					gouveia.maicon@gmail.com
-				</font>
-			</div>
-			<div class='row'>
-				<a href="#" onclick="#" class='btn btn-default col-md-offset-3 col-md-2'> <span class='glyphicon glyphicon-edit'></span></a>
-				<a href="#" onclick="#" class='btn btn-default col-md-offset-1 col-md-2'> <span class='glyphicon glyphicon-remove'></span></a>
-			</div>
-				
-			</div>
+		<div class='col-md-12' id='divEmail'>
+			
 		</div>
 	</div>
 

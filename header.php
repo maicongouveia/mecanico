@@ -16,6 +16,7 @@
 		<script src="assets/js/formularios.js"></script>
 		<!-- Script para Buscar Endereço -->
 		<script type="text/javascript" src="assets/js/buscaCepEndereco.js"></script>
+		<!--Script dos Formularios -->
 		<script type="text/javascript" src="assets/js/formularios.js"></script>
 		<!-- Mobile First -->
 		    <meta name="viewport" content="width=device-width, initial-scale=1">

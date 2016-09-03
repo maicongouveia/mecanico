@@ -1,3 +1,0 @@
-fuction adicionarTelefoneTela(telefone){
-	
-}
