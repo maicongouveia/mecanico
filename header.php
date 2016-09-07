@@ -11,13 +11,11 @@
 		<!-- Importando JS do BootStrap -->
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<!-- CUSTOM STYLES-->
-			<link href="assets/css/custom.css" rel="stylesheet" />
+		<link href="assets/css/custom.css" rel="stylesheet" />
 		<!-- Importando JS de Formulários -->
-		<script src="assets/js/formularios.js"></script>
+		<script src="assets/js/formularios.js"></script>		
 		<!-- Script para Buscar Endereço -->
 		<script type="text/javascript" src="assets/js/buscaCepEndereco.js"></script>
-		<!--Script dos Formularios -->
-		<script type="text/javascript" src="assets/js/formularios.js"></script>
 		<!-- Mobile First -->
 		    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- Caracteres Especiais -->
@@ -31,8 +29,10 @@
 				if (texto.substring(0,1) != saida){
 			 		t.value += texto.substring(0,1);
 			 	}
-		 }
-		</script>		
+		 	}
+		</script>
+		<!--Importando Verificação Telefone-->
+		<script src="assets/js/mascaraTelefone.js"></script>	
 		
 		
 	</head>

@@ -6,7 +6,7 @@ function adicionarTelefoneTela(contador){
 		var divTelefone = document.getElementById('divTelefones');
 		contador = contador + 1;
 		document.getElementById('botaoAddTelefone').setAttribute("onclick","adicionarTelefoneTela("+contador+")");
-		telefone = document.getElementById('telefoneCliente').value.split("-");
+		telefone = document.getElementById('telefoneCliente').value.split(" ");
 		document.getElementById('telefoneCliente').value = "";
 		var telefoneFormatado = "("+telefone[0]+")"+telefone[1]+"-"+telefone[2];
 		var novoDivTelefone = ""
@@ -88,9 +88,9 @@ function tipoCliente(registro){
 		document.getElementById("registroCliente").setAttribute("onkeypress","mascara(this,'##.###.###/####-##')");
 	}
 	if(registro == "cpf"){
-		document.getElementById("tituloRegistro").innerHTML = "CPF:";
+		document.getElementById("tituloRegistro").innerHTML = "CPF: ";
 		document.getElementById("registroCliente").value="";
 		document.getElementById("registroCliente").setAttribute("maxlength","14");
-		document.getElementById("registroCliente").setAttribute("onkeypress","mascara(this,'####.###.###-##')");
+		document.getElementById("registroCliente").setAttribute("onkeypress","mascara(this,'###.###.###-##')");
 	}
 }
