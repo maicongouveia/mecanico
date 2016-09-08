@@ -82,15 +82,15 @@ function verificaUsuario(){
 
 function tipoCliente(registro){
 	if(registro == "cnpj"){
-		document.getElementById("tituloRegistro").innerHTML = "CNPJ:";
 		document.getElementById("registroCliente").value= "";
 		document.getElementById("registroCliente").setAttribute("maxlength","18");
 		document.getElementById("registroCliente").setAttribute("onkeypress","mascara(this,'##.###.###/####-##')");
+		document.getElementById("registroCliente").setAttribute("placeholder","CNPJ");
 	}
 	if(registro == "cpf"){
-		document.getElementById("tituloRegistro").innerHTML = "CPF: ";
 		document.getElementById("registroCliente").value="";
 		document.getElementById("registroCliente").setAttribute("maxlength","14");
 		document.getElementById("registroCliente").setAttribute("onkeypress","mascara(this,'###.###.###-##')");
+		document.getElementById("registroCliente").setAttribute("placeholder","CPF");
 	}
 }

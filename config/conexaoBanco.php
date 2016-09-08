@@ -6,7 +6,7 @@ if($conexao == 1){
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "ticovolari";
+$dbname = "ticovolare";
 $urlAPI = "http://localhost";
 }
 else if($conexao == 2){
