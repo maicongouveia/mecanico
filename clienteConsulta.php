@@ -2,12 +2,13 @@
 <style type="text/css">
 	#botaoAddCliente{
 	 	border-radius: 50px; 
-	 	position: fixed;
 	 	width:50px;
 	 	height:50px;
 	 	padding: 13px;
-	 	margin-left: 70%;
-	 	margin-top: 30%;
+	 	text-align: center;
+	 	position: fixed;
+		right: 10vh;
+		top: 80vh;
 	 	z-index: 0;
 	 }
 
@@ -24,21 +25,29 @@
     }
 </style>
 <script type="text/javascript">
-
+function nomeDoCliente(nomeCliente){
+	if(nomeCliente != ''){
+		document.getElementById('nomeDoClienteTitulo').innerHTML = nomeCliente;
+		$('#ModalInicial').modal("hide");
+		$('#ClienteDados').modal("show");
+	}else{
+		document.getElementById('nomeCliente').focus();
+	}
+	
+}
 </script>
 <div>
 
-	<a href='#' id='botaoAddCliente' class='btn btn-warning glyphicon glyphicon-plus' data-toggle="modal" data-target="#ClienteNome">
-	</a>
+	<a href='#' id='botaoAddCliente' class='btn btn-warning glyphicon glyphicon-plus' data-toggle="modal" data-target="#ModalInicial">	</a>
 
 	<!-- Modal - Nome - Registro -->
-	<div class="modal fade" id='ClienteNome' tabindex="-1" role="dialog" style='margin-top: 30vh;'>
+	<div class="modal fade" id='ModalInicial' tabindex="-1" role="dialog" style='margin-top: 30vh;'>
 		<div class="modal-dialog modal-sm" role="document">
 			<div class="modal-content">
 		        <div class="modal-body" id='FormNomeCliente'>
 			        <div class='row'>
 		        	 	<input class='inputsDaTela input-sm col-xs-8' type="text" name="nomeCliente" id='nomeCliente' placeholder="Nome do Cliente">
-		        			<a href='#' id='botaoSimData' class="btn btn-warning col-xs-3" style='width: 80px; font-family: Calibri;' data-toggle="modal" data-target="#ClienteDados">
+		        			<a href='#' id='botaoSimData' class="btn btn-warning col-xs-3" style='width: 80px; font-family: Calibri;' onclick='nomeDoCliente(nomeCliente.value);'>
 		        	 		Criar
 		        	 	</a>
 			        </div>
@@ -49,13 +58,13 @@
 	</div>
 
 	<!-- Modal - Cadastro das Informações -->
-	<div class="modal fade" id='ClienteDados' tabindex="-1" role="dialog">
+	<div class="modal fade" id='ClienteDados' tabindex="-2" role="dialog">
 		<div class="modal-dialog modal-md" role="document">
 			<div class="modal-content">
 
 				<div class='modal-header'>
-					<img src="assets/img/user_silhueta.png" class='img-circle col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3'>
-					<font id='nomeDoCliente' class="col-md-12 col-xs-12 text-center" style='font-weight: bold;'>Nome do Cliente</font>
+					<img src="assets/img/user_silhueta.png" class='img-circle img-responsive col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3'>
+					<font id='nomeDoClienteTitulo' class="col-md-12 col-xs-12 text-center" style='font-weight: bold;'>Nome do Cliente</font>
 				</div>
 
 		        <div class="modal-body" id='FormDados' style='height: auto;'>
@@ -73,20 +82,20 @@
 
 					<div class='row' style='margin-top: 20px;'> 
 						<div id='InputsTelefone' class='col-md-12'>
-							<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12  text-center disable-focus' type="text" name="telefone[]" placeholder="Adicionar um telefone">
+							<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12  text-center disable-focus' type="text" name="telefone[]" placeholder="Adicionar um telefone" id='telefone1' onchange="criarInput('telefone',1);" onkeypress="mascara(this,'## #### #####')" >
 						</div>
 					</div>
 
 					<div class='row'>
-						<div id='InputsEndereço' class='col-md-12'>
-		        			<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12  text-center' type="text" name="endereco[]" placeholder="Adicionar um endereço">	
+						<div id='InputsEndereco' class='col-md-12'>
+		        			<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12  text-center' type="text" name="endereco[]" placeholder="Adicionar um endereço" id='endereco1' onchange="criarInput('endereco',1);">	
 		        		</div>
 					</div>
 		        	
 
 					<div class='row'>
 						<div id='InputsEmail' class='col-md-12'>
-							<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12  text-center' type="text" name="email[]" placeholder="Adicionar um email">
+							<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12  text-center' type="email" name="email[]" placeholder="Adicionar um email" id='email1' onchange="criarInput('email',1);">
 						</div>
 					</div>
 					<div class='row'>
