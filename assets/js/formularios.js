@@ -1,13 +1,15 @@
-
 function criarInput(tipo, contador){
 	if(tipo == "telefone"){
 		if(document.getElementById(tipo+contador).value != ''){
 			contador++;
 			var novoInput = ""
-			+"<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12 text-center disable-focus' type=\"text\" name=\"telefone[]\" placeholder=\"Adicionar um telefone\" id='telefone"+contador+"' onchange=\"criarInput('telefone',"+contador+")\" onkeypress=\"mascara(this,'## #### #####')\" >";
+			+"<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12 text-center disable-focus' type=\"text\" name=\"telefone[]\"  maxlength=\"13\"  placeholder=\"Adicionar um telefone\" id='telefone"+contador+"' onchange=\"criarInput('telefone',"+contador+")\" onkeypress=\"mascara(this,'## #### #####')\" >";
 			var divInputs = document.getElementById('InputsTelefone');
 			divInputs.insertAdjacentHTML('beforeend', novoInput);
 			document.getElementById(tipo+contador).focus();
+		}
+		else if(document.getElementById(tipo+contador).value == ''){
+			removerCampoAdicional(tipo+contador);
 		}
 	}	
 	else if(tipo == "email"){
@@ -18,7 +20,10 @@ function criarInput(tipo, contador){
 			var divInputs = document.getElementById('InputsEmail');
 			divInputs.insertAdjacentHTML('beforeend', novoInput);
 			document.getElementById(tipo+contador).focus();
-		}	
+		}
+		else if(document.getElementById(tipo+contador).value == ''){
+			removerCampoAdicional(tipo+contador);
+		}
 	}
 	else if(tipo == "endereco"){
 		if(document.getElementById(tipo+contador).value != ''){
@@ -28,6 +33,9 @@ function criarInput(tipo, contador){
 			var divInputs = document.getElementById('InputsEndereco');
 			divInputs.insertAdjacentHTML('beforeend', novoInput);
 			document.getElementById(tipo+contador).focus();
+		}
+		else if(document.getElementById(tipo+contador).value == ''){
+			removerCampoAdicional(tipo+contador);
 		}		
 	}	
 }

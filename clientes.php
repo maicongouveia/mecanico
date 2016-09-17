@@ -27,9 +27,50 @@
 			}
 
 			if(!is_null($_POST['telefone'])){
-				$sql = "INSERT INTO clientes_telefone (id_cliente,telefoneye4e3emsxxxq";	
+				$sql = "INSERT INTO clientes_telefone (id_cliente,telefone) VALUES ";
+				$telefones = $_POST['telefone'];
+				for ($i=0; $i < count($telefones); $i++) { 
+					$sql .= "($id_cliente,$telefones[$i])";
+					if($i != count($telefones)-1){
+						$sql .= " , ";
+					}	
+				}
+				//Executa a Query
+				if (!($conn->query($sql) === TRUE)){
+				    echo "Error: " . $sql . "<br>" . $conn->error;
+				}
+			}
+			if(!is_null($_POST['email'])){
+				$sql = "INSERT INTO clientes_email (id_cliente,email) VALUES ";
+				$emails = $_POST['email'];
+				for ($i=0; $i < count($emails); $i++) { 
+					$sql .= " ($id_cliente,$emails[$i]) ";
+					if($i != count($emails)-1){
+						$sql .= " , ";
+					}	
+				}
+				//Executa a Query
+				if (!($conn->query($sql) === TRUE)){
+				    echo "Error: " . $sql . "<br>" . $conn->error;
+				}
+			}
+			if(!is_null($_POST['endereco'])){
+				$sql = "INSERT INTO clientes_email (id_cliente,endereco) VALUES ";
+				$enderecos = $_POST['endereco'];
+				for ($i=0; $i < count($emails); $i++) { 
+					$sql .= " ($id_cliente,$enderecos[$i])";
+					if($i != count($enderecos)-1){
+						$sql .= " , ";
+					}	
+				}
+				//Executa a Query
+				if (!($conn->query($sql) === TRUE)){
+				    echo "Error: " . $sql . "<br>" . $conn->error;
+				}
 			}
 
+			$url = "clienteConsulta.php";
+			header("location:$url");
 			
 		}
 	}
