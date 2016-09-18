@@ -28,14 +28,10 @@
 			</a>
 		</li>
 		<li>
-			<a href='#.php'>
+			<a href='clienteConsulta.php'>
 				<i class='glyphicon glyphicon-user'></i>
 				&nbsp Clientes
 			</a>
-			<ul class='nav nav-second-level'>
-				<li><a href='clienteForm.php'><span class='glyphicon glyphicon-plus'></span>&nbsp Adicionar Cliente</a></li>
-				<li><a href='clienteConsulta.php'><span class='glyphicon glyphicon-search'></span>&nbsp Consultar Clientes</a></li>
-			</ul>
 		</li>
 		<li>
 			<a href='#.php'>
