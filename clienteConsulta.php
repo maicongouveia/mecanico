@@ -24,19 +24,48 @@
         font-size: 15px;
     }
 </style>
+<!-- Importando JS de Clientes -->
+<script src="assets/js/clientes.js"></script>	
 <script type="text/javascript">
 	function nomeDoCliente(nomeCliente){
 		if(nomeCliente != ''){
 			document.getElementById('nomeDoClienteTitulo').innerHTML = nomeCliente;
-			$('#ModalInicial').modal("toggle");
-			$('#ClienteDados').modal("toggle");
+			$('#ModalInicial').modal("hide");
+			$('#ClienteDados').modal("show");
 		}else{
 			document.getElementById('nomeCliente').focus();
 			document.getElementById('nomeCliente').setAttribute("style", "border: 1px solid red;");
 		}
 		
 	}
+	function salvar(){
+		var nome = document.getElementById('nomeDoClienteTitulo').innerHTML;
+		var registro = document.getElementById('registroCliente').value;
+		var telefones = [];
+		for (var i = document.getElementsByName("telefone[]").length - 1; i >= 0; i--) {
+			console.log(document.getElementsByName("telefone[]")[i].value);
+			telefones.push(document.getElementsByName("telefone[]")[i].value);
+		}
+		var enderecos = [];
+		for (var i = document.getElementsByName("endereco[]").length - 1; i >= 0; i--) {
+			console.log(document.getElementsByName("endereco[]")[i].value);
+			enderecos.push(document.getElementsByName("endereco[]")[i].value);
+		}
+		var emails = [];
+		for (var i = document.getElementsByName("email[]").length - 1; i >= 0; i--) {
+			console.log(document.getElementsByName("email[]")[i].value);
+			emails.push(document.getElementsByName("email[]")[i].value);
+		}
+		
+		cadastrarCliente(nome,registro,telefones,enderecos,emails);
+
+		$('#ModalInicial').modal("hide");
+		$('#ClienteDados').modal("hide");
+		$('#ClienteDados').modal("hide");
+	}
 </script>
+
+
 <div>
 	<a href='#' id='botaoAddCliente' class='btn btn-warning glyphicon glyphicon-plus' data-toggle="modal" data-target="#ModalInicial">	</a>
 
@@ -118,7 +147,7 @@
 
 		        <div class="modal-footer">
 		        	<a href="#" class='btn btn-default' data-dismiss="modal" style='font-family: Calibri; width: 80px; border-radius: 5px;'>Cancelar</a>
-		        	<a href="#" class='btn btn-warning' style='font-family: Calibri; width: 80px; border-radius: 5px;'>Salvar</a>
+		        	<a href="#" class='btn btn-warning' onclick="salvar();" style='font-family: Calibri; width: 80px; border-radius: 5px;'>Salvar</a>
 
 		        </div>	     
 		    </div>
