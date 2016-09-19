@@ -10,25 +10,40 @@
 			$operacao = $_GET['operacao'];
 		}
 
-		//Cadastrar
-		if($operacao == "cadastrar"){
+		//Cadastrar Cliente
+		if($operacao == "cadastrarCliente"){
+			//SQL
 			$sql = "INSERT INTO clientes (nome, registro) VALUES "
 			."('".$_POST['nome']."','".$_POST['registro']."')";
 			//Executa a Query
 			if (!($conn->query($sql) === TRUE)){
 			    echo "Error: " . $sql . "<br>" . $conn->error;
-			}
-			$sql = "SELECT * FROM clientes WHERE nome = '".$_POST['nome']."' ORDER by id DESC";
-			
-			echo $sql.'\n';
-
-			$result = $conn->query($sql);
-
-			if($result->num_rows > 0){
-				while($row = $result->fetch_assoc()){
-					$id_cliente = $row['id'];
+			}else{
+				//Consulta ID do Cliente cadastrado
+				//SQL
+				$sql = "SELECT * FROM clientes WHERE nome = '".$_POST['nome']."' ORDER by id DESC LIMIT BY 1";
+				//Executa a Query
+				$result = $conn->query($sql);
+				//Traz o ultimo registro
+				if($result->num_rows > 0){
+					while($row = $result->fetch_assoc()){
+						$id_cliente = $row['id'];
+					}
 				}
+				//Escreve resposta em json
+				$resposta = array(
+					"codigo" => 200,
+					"operacao" => "Cadastro de cliente",
+					"resposta" => array(
+						"id_cliente" => $id_cliente;
+						)
+					);
 			}
+		}
+
+		if($operacao == "cadastrarTelefone")
+
+		/*
 
 			if(!is_null($_POST['telefone']) || $_POST['telefone'] != undefined){
 				$sql = "INSERT INTO clientes_telefone (id_cliente,telefone) VALUES ";
