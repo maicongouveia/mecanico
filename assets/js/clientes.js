@@ -3,7 +3,7 @@ function cadastrarCliente(nome,registro,telefones,enderecos,emails){
 	var xhttp = new XMLHttpRequest(); 
 
 	var url = 'clientes.php';
-	var params = 'operacao=cadastrar&nome='+nome+'&registro='+registro;
+	var params = 'operacao=cadastrar&nome='+nome+'&registro='+registro+'&telefones='+telefones+'&enderecos='+enderecos+'&emails='+emails;
     xhttp.open("POST", url , true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(params);

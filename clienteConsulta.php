@@ -41,21 +41,39 @@
 	function salvar(){
 		var nome = document.getElementById('nomeDoClienteTitulo').innerHTML;
 		var registro = document.getElementById('registroCliente').value;
-		var telefones = [];
-		for (var i = document.getElementsByName("telefone[]").length - 1; i >= 0; i--) {
-			console.log(document.getElementsByName("telefone[]")[i].value);
-			telefones.push(document.getElementsByName("telefone[]")[i].value);
+
+		var campoTelefone = document.getElementsByName("telefone[]");
+		var telefones = new Array();
+		for (var i = 0; i < campoTelefone.length ; i++) {			
+			if(campoTelefone[i].value != ""){
+				telefones.push(document.getElementsByName("telefone[]")[i].value);
+			}
 		}
-		var enderecos = [];
-		for (var i = document.getElementsByName("endereco[]").length - 1; i >= 0; i--) {
-			console.log(document.getElementsByName("endereco[]")[i].value);
-			enderecos.push(document.getElementsByName("endereco[]")[i].value);
+		telefones = JSON.stringify(telefones);		
+		console.log(telefones);
+
+		var campoEnderecos = document.getElementsByName("endereco[]");
+		var enderecos = new Array();
+		for (var i = 0; i < document.getElementsByName("endereco[]").length ; i++) {
+			if(campoEnderecos[i].value != ""){
+				enderecos.push(campoEnderecos[i].value);
+			}
+			
 		}
-		var emails = [];
-		for (var i = document.getElementsByName("email[]").length - 1; i >= 0; i--) {
-			console.log(document.getElementsByName("email[]")[i].value);
-			emails.push(document.getElementsByName("email[]")[i].value);
+		enderecos = JSON.stringify(enderecos);
+		console.log(enderecos);
+
+		var campoEmails = document.getElementsByName("email[]");
+		var emails = new Array();
+		for (var i = 0; i < campoEmails.length ; i++) {
+			if(campoEmails[i].value != ""){
+				campoEmails.push(campoEmails[i].value);
+			}
+			
 		}
+		campoEmails = JSON.stringify(campoEmails);
+		console.log(campoEmails);
+		
 		
 		cadastrarCliente(nome,registro,telefones,enderecos,emails);
 
@@ -64,7 +82,6 @@
 		$('#ClienteDados').modal("hide");
 	}
 </script>
-
 
 <div>
 	<a href='#' id='botaoAddCliente' class='btn btn-warning glyphicon glyphicon-plus' data-toggle="modal" data-target="#ModalInicial">	</a>
