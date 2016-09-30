@@ -25,66 +25,16 @@
     }
 </style>
 <!-- Importando JS de Clientes -->
-<script src="assets/js/clientes.js"></script>	
-<script type="text/javascript">
-	function nomeDoCliente(nomeCliente){
-		if(nomeCliente != ''){
-			document.getElementById('nomeDoClienteTitulo').innerHTML = nomeCliente;
-			$('#ModalInicial').modal("hide");
-			$('#ClienteDados').modal("show");
-		}else{
-			document.getElementById('nomeCliente').focus();
-			document.getElementById('nomeCliente').setAttribute("style", "border: 1px solid red;");
-		}
-		
-	}
-	function salvar(){
-		var nome = document.getElementById('nomeDoClienteTitulo').innerHTML;
-		var registro = document.getElementById('registroCliente').value;
-
-		var campoTelefone = document.getElementsByName("telefone[]");
-		var telefones = new Array();
-		for (var i = 0; i < campoTelefone.length ; i++) {			
-			if(campoTelefone[i].value != ""){
-				telefones.push(document.getElementsByName("telefone[]")[i].value);
-			}
-		}
-		telefones = JSON.stringify(telefones);		
-		console.log(telefones);
-
-		var campoEnderecos = document.getElementsByName("endereco[]");
-		var enderecos = new Array();
-		for (var i = 0; i < document.getElementsByName("endereco[]").length ; i++) {
-			if(campoEnderecos[i].value != ""){
-				enderecos.push(campoEnderecos[i].value);
-			}
-			
-		}
-		enderecos = JSON.stringify(enderecos);
-		console.log(enderecos);
-
-		var campoEmails = document.getElementsByName("email[]");
-		var emails = new Array();
-		for (var i = 0; i < campoEmails.length ; i++) {
-			if(campoEmails[i].value != ""){
-				campoEmails.push(campoEmails[i].value);
-			}
-			
-		}
-		campoEmails = JSON.stringify(campoEmails);
-		console.log(campoEmails);
-		
-		
-		cadastrarCliente(nome,registro,telefones,enderecos,emails);
-
-		$('#ModalInicial').modal("hide");
-		$('#ClienteDados').modal("hide");
-		$('#ClienteDados').modal("hide");
-	}
-</script>
-
+<script src="assets/js/clientes.js"></script>
+<script type="text/javascript">consultaClientes();</script>
 <div>
-	<a href='#' id='botaoAddCliente' class='btn btn-warning glyphicon glyphicon-plus' data-toggle="modal" data-target="#ModalInicial">	</a>
+
+	<!--Botão para Adicionar Clientes-->
+	<a href='#' id='botaoAddCliente' class='btn btn-warning glyphicon glyphicon-plus' onclick='abrirModal();'>	</a>
+
+	<!--Aba para Adicionar Clientes-->
+	<div id='clientes'>
+	</div>
 
 	<!-- Modal - Nome - Registro -->
 	<div class="modal fade" id='ModalInicial' tabindex="-1" role="dialog" style='margin-top: 30vh;'>
@@ -93,7 +43,7 @@
 		        <div class="modal-body" id='FormNomeCliente'>
 			        <div class='row'>
 		        	 	<input class='inputsDaTela input-sm col-xs-8' type="text" name="nomeCliente" id='nomeCliente' placeholder="Nome do Cliente">
-		        			<a href='#' id='botaoSimData' class="btn btn-warning col-xs-3" data-dismiss='#ModalInicial' style='width: 80px; font-family: Calibri;' onclick='nomeDoCliente(nomeCliente.value);'>
+		        			<a href='#' id='botaoSimData' class="btn btn-warning col-xs-3" style='width: 80px; font-family: Calibri;' onclick='nomeDoCliente(nomeCliente.value);'>
 		        	 		Criar
 		        	 	</a>
 			        </div>
