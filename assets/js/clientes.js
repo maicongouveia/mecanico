@@ -10,7 +10,7 @@ function cadastrarCliente(nome,registro,telefones,enderecos,emails){
 
     xhttp.onreadystatechange = function() {//Call a function when the state changes.
 	    if(xhttp.readyState == 4 && xhttp.status == 200) {
-	        console.log(xhttp.responseText);
+	       consultaClientes('tabela');
 	    }
 	}
 }
@@ -67,47 +67,98 @@ function salvar(){
 	$('#ClienteDados').modal('hide');
 }
 
-function abrirModal(){
-
-	$('#ModalInicial').modal('show');
+function abrirModal(nomeModal){
+	$(nomeModal).modal('show');
 }
 
-function carregarNaPagina(html){
-	document.getElementById('clientes').innerHTML=html;
-}
-
-function consultaClientes(){
+function consultaClientes(tipo){
 
 	var xhttp = new XMLHttpRequest();
 
 	var url = 'clientes.php';
-	var params = '?operacao=consultar';
-	console.log(url+params);
+	var params = '?operacao=consultar&tipo='+tipo;
     xhttp.open("GET", url+params , true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send();
 
-    var html = "<div class='col-md-3 col-md-offset-4 col-xs-12'><img class='col-md-10 col-md-offset-1 col-xs-12' src='assets/img/reload.gif'></div>";
-    carregarNaPagina(html);
+    document.getElementById("clientesEstranhos").innerHTML = "<div class='col-md-3 col-md-offset-4 col-xs-12'><img class='col-md-10 col-md-offset-1 col-xs-12' src='assets/img/reload.gif'></div>";
 
 	xhttp.onreadystatechange = function() {
-    	var json = JSON.parse(xhttp.responseText);
-    	console.log(json.length);
-    	var tabela = "<table class='table-hover'>";
-    	for(var i = 0; i<json.length;i++){
-    		tabela += "<tr>";
-    		tabela += "<td>";
-    		tabela += json[i]['nome'];
-    		tabela += "</td>";
-    		tabela += "</tr>";
+		if (this.readyState == 4 && this.status == 200) {
+			var json = JSON.parse(xhttp.responseText);
+    	//console.log(json);
+    	var cliente;
+    	var tabela = "\n<table class='table table-hover table-striped'>"
+    	tabela += "\n<tr style='font-weight: bold;'>";
+    	tabela += "\n<td>";
+    	tabela += "\nNome do Cliente";
+    	tabela += "\n</td>";
+    	tabela += "\n<td>";
+    	tabela += "\nTelefone Principal";
+    	tabela += "\n</td>";
+    	tabela += "\n<td>";
+    	tabela += "\nEndereço";
+    	tabela += "\n</td>";
+    	tabela += "\n</tr>";
+    	for(var i=0;i<json.length;i++){
+    		cliente = json[i];
+    		telefones = cliente['telefones'];
+    		enderecos = cliente['enderecos'];
+    		tabela += "\n<tr onclick='consultaCliente("+cliente['id']+");'>";
+    		tabela += "\n<td>\n";
+    		tabela += cliente['nome'];
+    		tabela += "\n</td>";
+    		tabela += "\n<td>\n";
+    		if(telefones != null)
+    			tabela += telefones[0]['telefone'];
+    		else
+    			tabela += "--------------";
+    		tabela += "\n</td>";
+    		tabela += "\n<td>\n";
+    		if(enderecos != null)
+    			tabela += enderecos[0]['endereco'];
+    		else
+    			tabela += "--------------";
+    		tabela += "\n</td>";
+    		tabela += "\n</tr>";
     	}
-
     	tabela += "</table>";
 
-    	//carregarNaPagina(tabela);
-	}
-
-	
+    	 document.getElementById("clientesEstranhos").innerHTML = tabela;
+		}
+    	
+	}	
 }
 
+function consultaCliente(id){
 
+	var xhttp = new XMLHttpRequest();
+
+	var url = 'clientes.php';
+	var params = '?operacao=consultar&tipo=&id='+id;
+    xhttp.open("GET", url+params , true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send();
+
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			var json = JSON.parse(xhttp.responseText);
+			//console.log(json);
+			var cliente = json[0];
+			var telefones = cliente['telefones'];
+			var enderecos = cliente['enderecos'];
+
+			document.getElementById('nomeDoClienteTitulo').innerHTML = cliente['nome'];
+
+			//Botão de Excluir
+			document.getElementById('botaoAuxiliar').setAttribute("onclick","excluirCliente("+cliente['id']+");");
+			document.getElementById('botaoAuxiliar').innerHTML = Excluir;
+
+
+			abrirModal('#ClienteDados');
+
+
+			
+		}
+   	}	
+}

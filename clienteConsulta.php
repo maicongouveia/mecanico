@@ -26,15 +26,17 @@
 </style>
 <!-- Importando JS de Clientes -->
 <script src="assets/js/clientes.js"></script>
-<script type="text/javascript">consultaClientes();</script>
 <div>
 
 	<!--Botão para Adicionar Clientes-->
-	<a href='#' id='botaoAddCliente' class='btn btn-warning glyphicon glyphicon-plus' onclick='abrirModal();'>	</a>
+	<a href='#' id='botaoAddCliente' class='btn btn-warning glyphicon glyphicon-plus' onclick='abrirModal("#ModalInicial");'>	</a>
 
 	<!--Aba para Adicionar Clientes-->
-	<div id='clientes'>
+	<div id='clientesEstranhos'>
 	</div>
+
+	<!--Executa Script-->
+	<script type="text/javascript">consultaClientes('tabela')</script>
 
 	<!-- Modal - Nome - Registro -->
 	<div class="modal fade" id='ModalInicial' tabindex="-1" role="dialog" style='margin-top: 30vh;'>
@@ -113,7 +115,7 @@
 				</div>
 
 		        <div class="modal-footer">
-		        	<a href="#" class='btn btn-default' data-dismiss="modal" style='font-family: Calibri; width: 80px; border-radius: 5px;'>Cancelar</a>
+		        	<a href="#" class='btn btn-default' id='botaoAuxiliar' data-dismiss="modal" style='font-family: Calibri; width: 80px; border-radius: 5px;'>Cancelar</a>
 		        	<a href="#" class='btn btn-warning' onclick="salvar();" style='font-family: Calibri; width: 80px; border-radius: 5px;'>Salvar</a>
 
 		        </div>	     
@@ -122,4 +124,5 @@
 	</div>
 
 </div>
+
 <?php include 'footer.php'; ?>

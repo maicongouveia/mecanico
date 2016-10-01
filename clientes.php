@@ -79,7 +79,10 @@
 		}//Fim de Cadastro de Cliente
 		if($operacao == "consultar"){
 
-			$sql = "SELECT * FROM clientes ORDER BY id DESC";
+			if(isset($_GET['id']))
+				$sql = "SELECT * FROM clientes WHERE id = ".$_GET['id'];
+			else
+				$sql = "SELECT * FROM clientes ORDER BY id DESC";
 			$clientes = array();
 			//Pega os dados da tabela
 			$result = $conn->query($sql);
@@ -90,7 +93,10 @@
 					$id_cliente = $row['id'];
 
 					//Pega todos os telefones
-					$sql = "SELECT id,telefone FROM clientes_telefone WHERE id_cliente = $id_cliente ORDER BY id DESC";
+					if($_GET['tipo']=="tabela")
+						$sql = "SELECT id,telefone FROM clientes_telefone WHERE id_cliente = $id_cliente ORDER BY id LIMIT 1";
+					else	
+						$sql = "SELECT id,telefone FROM clientes_telefone WHERE id_cliente = $id_cliente ORDER BY id DESC";
 					$telefones = array();
 					//Pega os dados da tabela
 					$result1 = $conn->query($sql);
@@ -104,7 +110,11 @@
 						$telefones = NULL;
 					}
 
-					$sql = "SELECT id,endereco FROM clientes_endereco WHERE id_cliente = $id_cliente ORDER BY id DESC";
+					if($_GET['tipo']=="tabela")
+						$sql = "SELECT id,endereco FROM clientes_endereco WHERE id_cliente = $id_cliente ORDER BY id DESC LIMIT 1";
+					else
+						$sql = "SELECT id,endereco FROM clientes_endereco WHERE id_cliente = $id_cliente ORDER BY id DESC";
+
 					$enderecos = array();
 					//Pega os dados da tabela
 					$result2 = $conn->query($sql);
@@ -117,7 +127,11 @@
 					else{
 						$enderecos = NULL;
 					}
-					$sql = "SELECT id,email FROM clientes_email WHERE id_cliente = $id_cliente ORDER BY id DESC";
+
+					if($_GET['tipo']=="tabela")
+						$sql = "SELECT id,email FROM clientes_email WHERE id_cliente = $id_cliente ORDER BY id DESC LIMIT 1";
+					else
+						$sql = "SELECT id,email FROM clientes_email WHERE id_cliente = $id_cliente ORDER BY id DESC";
 					$emails = array();
 					//Pega os dados da tabela
 					$result3 = $conn->query($sql);
