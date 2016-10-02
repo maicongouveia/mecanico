@@ -279,12 +279,12 @@ function consultaCliente(id){
 			if(enderecos!=null){
 				var inputsEndereco = "";
 				for(var i=0;i<enderecos.length;i++){
-					inputsEndereco += "<div class='row col-md-8 col-md-offset-2 text-center'>";
+					inputsEndereco += "<div class='row col-md-8 col-md-offset-2 text-center' id='Linha-endereco-"+enderecos[i]['id']+"'>";
 					inputsEndereco += "\n<a href='#' class='glyphicon glyphicon-pencil'></a>";
 					inputsEndereco += "\n<span id='endereco-"+enderecos[i]['id']+"'>";
 					inputsEndereco += enderecos[i]['endereco'];
 					inputsEndereco += "</span>";
-					inputsEndereco += "\n<a href='#' class='glyphicon glyphicon-trash'></a>";
+					inputsEndereco += "\n<a href='#' class='glyphicon glyphicon-trash' onclick='aviso(\"excluirItem\",\"endereco-"+enderecos[i]['id']+"\")';></a>";
 					inputsEndereco += "</div>";					
 				}
 				inputsEndereco += "\n<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12 text-center' type='text' name='endereco[]' id='endereco1' placeholder='Adicionar um endereço' onchange=\"criarInput('endereco',1);\">";
@@ -296,15 +296,14 @@ function consultaCliente(id){
 			if(emails!=null){
 				var inputsEmails = "";
 				for(var i=0;i<emails.length;i++){
-					inputsEmails += "<div class='row col-md-8 col-md-offset-2 text-center'>";
+					inputsEmails += "<div class='row col-md-8 col-md-offset-2 text-center' id='Linha-email-"+emails[i]['id']+"'>";
 					inputsEmails += "\n<a href='#' class='glyphicon glyphicon-pencil'></a>";
 					inputsEmails += "\n<span id='email-"+emails[i]['id']+"'>";
 					inputsEmails += emails[i]['email'];
 					inputsEmails += "</span>";
-					inputsEmails += "\n<a href='#' class='glyphicon glyphicon-trash'></a>";
+					inputsEmails += "\n<a href='#' class='glyphicon glyphicon-trash' onclick='aviso(\"excluirItem\",\"email-"+emails[i]['id']+"\")';></a>";
 					inputsEmails += "</div>";					
-				}
-			
+				}			
 				
 				inputsEmails += "\n<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12 text-center' type='email' name='email[]' id='email1' placeholder='Adicionar um email' onchange=\"criarInput('email',1);\">";
 
