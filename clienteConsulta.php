@@ -67,7 +67,7 @@
 
 		        <div class="modal-body" id='FormDados' style='height: auto;'>
 
-		        	<div class='row'> 
+		        	<div class='row' id='linhaOptionRegistro'> 
 						<div class='col-md-12 text-center'>
 							<label class="radio-inline"><input type="radio" name="registro" id='registro' value ='cpf' onchange="tipoCliente(this.value);" checked="checked">Física</label>
 							<label class="radio-inline"><input type="radio" name="registro" id='registro' value ='cnpj' onchange="tipoCliente(this.value);">Jurídica</label>
@@ -111,15 +111,33 @@
 					<div class='row'>
 							
 					</div>
-		        	
-				</div>
+		        </div>
 
 		        <div class="modal-footer">
 		        	<a href="#" class='btn btn-default' id='botaoAuxiliar' data-dismiss="modal" style='font-family: Calibri; width: 80px; border-radius: 5px;'>Cancelar</a>
 		        	<a href="#" class='btn btn-warning' onclick="salvar();" style='font-family: Calibri; width: 80px; border-radius: 5px;'>Salvar</a>
-
 		        </div>	     
 		    </div>
+		</div>
+	</div>
+
+	<!-- Modal - Aviso -->
+	<div class='modal fade' id='Aviso' role='dialog'>
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+
+				<div class='modal-header'>
+					Aviso <span class='glyphicon glyphicon-warning-sign'></span>
+				</div>
+
+				<div class="modal-body" id='Pergunta' style='height: auto;'>
+				</div>
+
+				<div class="modal-footer">
+					<a href='#' class='btn btn-success' id='botaoEsquerdo'>Sim</a>
+					<a href='#' class='btn btn-danger' id='botaoDireita' data-dimiss='modal'>Não</a>
+				</div>
+			</div>
 		</div>
 	</div>
 

@@ -77,12 +77,14 @@
 				}
 			}
 		}//Fim de Cadastro de Cliente
-		if($operacao == "consultar"){
+		//Consultar Cliente
+		else if($operacao == "consultar"){
 
 			if(isset($_GET['id']))
 				$sql = "SELECT * FROM clientes WHERE id = ".$_GET['id'];
 			else
 				$sql = "SELECT * FROM clientes ORDER BY id DESC";
+
 			$clientes = array();
 			//Pega os dados da tabela
 			$result = $conn->query($sql);
@@ -97,12 +99,15 @@
 						$sql = "SELECT id,telefone FROM clientes_telefone WHERE id_cliente = $id_cliente ORDER BY id LIMIT 1";
 					else	
 						$sql = "SELECT id,telefone FROM clientes_telefone WHERE id_cliente = $id_cliente ORDER BY id DESC";
+
 					$telefones = array();
 					//Pega os dados da tabela
 					$result1 = $conn->query($sql);
 					//Preenche Array
 					if($result1->num_rows > 0){
+
 						while($row1 = $result1->fetch_assoc()) {
+
 							array_push($telefones, $row1);
 						}
 					}
@@ -158,9 +163,59 @@
 				}
 
 				echo json_encode($clientes);
+		}//Fim de Consultar Cliente
+		
 		}
-	
-		}
+		//Excluir Cliente
+		else if($operacao == "excluir"){
+			if(isset($_POST['tipo'])){
+				$tipo = $_POST['tipo'];
+				if($tipo=="telefone"){
+					$sql = "DELETE FROM clientes_telefone WHERE id = ".$_POST['id'];
+					//Executa a Query
+					if (!($conn->query($sql) === TRUE)){
+					    echo "Error: " . $sql . "<br>" . $conn->error;
+					}
+				}
+				else if($tipo=="endereco"){
+					$sql = "DELETE FROM clientes_endereco WHERE id = ".$_POST['id'];
+					//Executa a Query
+					if (!($conn->query($sql) === TRUE)){
+					    echo "Error: " . $sql . "<br>" . $conn->error;
+					}
+				}
+				else if($tipo=="email"){
+					$sql = "DELETE FROM clientes_email WHERE id = ".$_POST['id'];
+					//Executa a Query
+					if (!($conn->query($sql) === TRUE)){
+					    echo "Error: " . $sql . "<br>" . $conn->error;
+					}
+				}
+			}
+			else{
+				$sql = "DELETE FROM clientes_email WHERE id_cliente = ".$_POST['id'];
+				//Executa a Query
+				if (!($conn->query($sql) === TRUE)){
+				    echo "Error: " . $sql . "<br>" . $conn->error;
+				}
+				$sql = "DELETE FROM clientes_telefone WHERE id_cliente = ".$_POST['id'];
+				//Executa a Query
+				if (!($conn->query($sql) === TRUE)){
+				    echo "Error: " . $sql . "<br>" . $conn->error;
+				}
+				$sql = "DELETE FROM clientes_endereco WHERE id_cliente = ".$_POST['id'];
+				//Executa a Query
+				if (!($conn->query($sql) === TRUE)){
+				    echo "Error: " . $sql . "<br>" . $conn->error;
+				}
+				$sql = "DELETE FROM clientes WHERE id = ".$_POST['id'];
+				//Executa a Query
+				if (!($conn->query($sql) === TRUE)){
+				    echo "Error: " . $sql . "<br>" . $conn->error;
+				}
+			}
+			
+		}//Fim Excluir Cliente		
 	}
 
 
