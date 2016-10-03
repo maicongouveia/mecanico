@@ -220,7 +220,7 @@
 
 			if(isset($_POST['tipo'])){
 				$tipo = $_POST['tipo'];
-				if($tipo=="nomeCliente"){
+				if($tipo=="nome"){
 					$sql = "UPDATE clientes SET nome = '".$_POST['valor']."' WHERE id = '".$_POST['id']."' ";
 				}
 				else if($tipo=="registro"){

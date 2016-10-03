@@ -26,54 +26,54 @@ function nomeDoCliente(nomeCliente){
 		+"			<img src='assets/img/user_silhueta.png' class='img-circle img-responsive col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3'>"
 		+"			<font id='nomeDoClienteTitulo' class='col-md-12 col-xs-12 text-center' style='font-weight: bold;'>Nome do Cliente</font>"
 		+"		</div>"
-	+"		        <div class='modal-body' id='FormDados' style='height: auto;'>"
+		+"		        <div class='modal-body' id='FormDados' style='height: auto;'>"
 
-	+"		        	<div class='row' id='linhaOptionRegistro'> "
-	+"						<div class='col-md-12 text-center'>"
-	+"							<label class='radio-inline'><input type='radio' name='registro' id='registro' value ='cpf' onchange='tipoCliente(this.value);' checked='checked'>Física</label>"
-	+"							<label class='radio-inline'><input type='radio' name='registro' id='registro' value ='cnpj' onchange='tipoCliente(this.value);'>Jurídica</label>"
-	+"						</div>	"
-	+"					</div>"
-	+"					<div class='row'> "
-	+"						<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12 text-center' style='border-bottom: 1px solid black;' type='text' id='registroCliente' maxlength='14' onkeypress='mascara(this,\"###.###.###-##\")' placeholder='CPF'>"
-	+"					</div>"
+		+"		        	<div class='row' id='linhaOptionRegistro'> "
+		+"						<div class='col-md-12 text-center'>"
+		+"							<label class='radio-inline'><input type='radio' name='registro' id='registro' value ='cpf' onchange='tipoCliente(this.value);' checked='checked'>Física</label>"
+		+"							<label class='radio-inline'><input type='radio' name='registro' id='registro' value ='cnpj' onchange='tipoCliente(this.value);'>Jurídica</label>"
+		+"						</div>	"
+		+"					</div>"
+		+"					<div class='row'> "
+		+"						<input class='inputsDaTela input-xs col-md-6 col-md-offset-3 col-xs-12 text-center' style='border-bottom: 1px solid black;' type='text' id='registroCliente' maxlength='14' onkeypress='mascara(this,\"###.###.###-##\")' placeholder='CPF'>"
+		+"					</div>"
 
-	+"					<div class='row' style='margin-top: 20px;'> "
-	+"						<div id='InputsTelefone' class='col-md-12'>"
-	+"							<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12 text-center disable-focus' "
-	+"								type='text' name='telefone[]' id='telefone1'  "
-	+"								placeholder='Adicionar um telefone' maxlength='13' "
-	+"								onchange='criarInput(\"telefone\",1);' onkeypress='mascara(this,\"## #### #####\")'"
-	+"							>"
-	+"						</div>"
-	+"					</div>"
-	+"					<div class='row'>"
-	+"						<div id='InputsEndereco' class='col-md-12'>"
-	+"		        			<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12 text-center' "
-	+"		        				type='text' name='endereco[]' id='endereco1' "
-	+"		        				placeholder='Adicionar um endereço' "
-	+"		        				onchange='criarInput(\"endereco\",1);'"
-	+"		        			>	"
-	+"		        		</div>"
-	+"					</div>"
-	+"						<div class='row'>"
-	+"						<div id='InputsEmail' class='col-md-12'>"
-	+"							<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12 text-center' "
-	+"								type='email' name='email[]' id='email1' "
-	+"								placeholder='Adicionar um email' "
-	+"								onchange='criarInput(\"email\",1);'"
-	+"							>"
-	+"						</div>"
-	+"					</div>"
-	+"					<div class='row'>"
-	+"					</div>"
-	+"		        </div>"
-	+"		        <div class='modal-footer'>"
-	+"		        	<a href='#' class='btn btn-default' id='botaoAuxiliar' data-dismiss='modal' style='font-family: Calibri; width: 80px; border-radius: 5px;'>Cancelar</a>"
-	+"		        	<a href='#' class='btn btn-warning' onclick='salvar();' style='font-family: Calibri; width: 80px; border-radius: 5px;'>Salvar</a>"
-	+"		        </div>"
-	+"		    </div>"
-	+"		</div>'";
+		+"					<div class='row' style='margin-top: 20px;'> "
+		+"						<div id='InputsTelefone' class='col-md-12'>"
+		+"							<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12 text-center disable-focus' "
+		+"								type='text' name='telefone[]' id='telefone1'  "
+		+"								placeholder='Adicionar um telefone' maxlength='13' "
+		+"								onchange='criarInput(\"telefone\",1);' onkeypress='mascara(this,\"## #### #####\")'"
+		+"							>"
+		+"						</div>"
+		+"					</div>"
+		+"					<div class='row'>"
+		+"						<div id='InputsEndereco' class='col-md-12'>"
+		+"		        			<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12 text-center' "
+		+"		        				type='text' name='endereco[]' id='endereco1' "
+		+"		        				placeholder='Adicionar um endereço' "
+		+"		        				onchange='criarInput(\"endereco\",1);'"
+		+"		        			>	"
+		+"		        		</div>"
+		+"					</div>"
+		+"						<div class='row'>"
+		+"						<div id='InputsEmail' class='col-md-12'>"
+		+"							<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12 text-center' "
+		+"								type='email' name='email[]' id='email1' "
+		+"								placeholder='Adicionar um email' "
+		+"								onchange='criarInput(\"email\",1);'"
+		+"							>"
+		+"						</div>"
+		+"					</div>"
+		+"					<div class='row'>"
+		+"					</div>"
+		+"		        </div>"
+		+"		        <div class='modal-footer'>"
+		+"		        	<a href='#' class='btn btn-default' id='botaoAuxiliar' data-dismiss='modal' style='font-family: Calibri; width: 80px; border-radius: 5px;'>Cancelar</a>"
+		+"		        	<a href='#' class='btn btn-warning' onclick='salvar();' style='font-family: Calibri; width: 80px; border-radius: 5px;'>Salvar</a>"
+		+"		        </div>"
+		+"		    </div>"
+		+"		</div>'";
 		$('#ClienteDados').modal('show');
 	}else{
 		document.getElementById('nomeCliente').focus();
@@ -120,7 +120,6 @@ function salvar(){
 		
 	}
 	enderecos = enderecos.join(" * ");
-	console.log(enderecos);
 	
 	cadastrarCliente(nome,registro,telefones,enderecos,emails);
 	
@@ -137,7 +136,12 @@ function excluir(id){
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(params);
 
-    consultaClientes('');
+     xhttp.onreadystatechange = function() {//Call a function when the state changes.
+	    if(xhttp.readyState == 4 && xhttp.status == 200) {
+	      consultaClientes('');
+	    }
+	}
+    
 
     $("#Aviso").modal('hide');   
 }
@@ -171,17 +175,20 @@ function alterar(tipo,id){
     xhttp.open("POST", url, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send(params);
-
-    if(tipo != 'registro'){
-    	document.getElementById(tipo+"-"+id).innerHTML = valor;
-    	document.getElementById(tipo+"-"+id).innerHTML = valor;
-    }
+    
+	if(tipo == "registro"){
+		document.getElementById("registroCliente").value = valor;
+	}
+	else if(tipo == "nome"){
+		document.getElementById("nomeDoClienteTitulo").innerHTML = valor;
+	}
     else{
-    	document.getElementById(tipo).innerHTML = valor;
-    }
+    	document.getElementById(tipo+"-"+id).innerHTML = valor;
+    	document.getElementById(tipo+"-"+id).innerHTML = valor;
+    }	
+    
 
     $('#inputAlteracao').modal('hide');
-
 }
 
 function inputAlteracao(tipo,id,valor){
@@ -193,11 +200,11 @@ function inputAlteracao(tipo,id,valor){
 
 function aviso(tipo,id){
 	if(tipo=='excluir'){
-		document.getElementById("botaoEsquerdo").setAttribute("onclick","excluir("+id+");");
+		document.getElementById("botaoEsquerdoAlterar").setAttribute("onclick","excluir("+id+");");
 		document.getElementById("Pergunta").innerHTML = "Deseja excluir esse cliente?";
 	}
 	else if(tipo=='excluirItem'){
-		document.getElementById("botaoEsquerdo").setAttribute("onclick","excluirItem('"+id+"');");
+		document.getElementById("botaoEsquerdoAlterar").setAttribute("onclick","excluirItem('"+id+"');");
 		document.getElementById("Pergunta").innerHTML = "Deseja excluir " + document.getElementById(id).innerHTML;
 	}
 
@@ -282,7 +289,9 @@ function consultaCliente(id){
 			var emails = cliente['emails'];
 
 			document.getElementById('nomeDoClienteTitulo').innerHTML = cliente['nome'];
+			document.getElementById('linhaNomeCliente').insertAdjacentHTML('afterbegin',"<a href='#' class='glyphicon glyphicon-pencil' onclick='inputAlteracao(\"nome\",\""+cliente['id']+"\",\""+cliente['nome']+"\")';></a>");
 			document.getElementById('linhaOptionRegistro').innerHTML = "";
+			document.getElementById('linhaRegistro').insertAdjacentHTML('afterbegin',"<a href='#' class='glyphicon glyphicon-pencil' onclick='inputAlteracao(\"registro\",\""+cliente['id']+"\",\""+cliente['registro']+"\")';></a>");
 			document.getElementById('registroCliente').value = cliente['registro'];
 			document.getElementById('registroCliente').disabled = true;
 
@@ -309,7 +318,7 @@ function consultaCliente(id){
 				var inputsEndereco = "";
 				for(var i=0;i<enderecos.length;i++){
 					inputsEndereco += "<div class='row col-md-8 col-md-offset-2 text-center' id='Linha-endereco-"+enderecos[i]['id']+"'>";
-					inputsEndereco += "\n<a href='#' class='glyphicon glyphicon-pencil'></a>";
+					inputsEndereco += "\n<a href='#' class='glyphicon glyphicon-pencil' onclick=\"inputAlteracao('endereco','"+enderecos[i]['id']+"','"+enderecos[i]['endereco']+"');\"></a>";
 					inputsEndereco += "\n<span id='endereco-"+enderecos[i]['id']+"'>";
 					inputsEndereco += enderecos[i]['endereco'];
 					inputsEndereco += "</span>";
@@ -326,7 +335,7 @@ function consultaCliente(id){
 				var inputsEmails = "";
 				for(var i=0;i<emails.length;i++){
 					inputsEmails += "<div class='row col-md-8 col-md-offset-2 text-center' id='Linha-email-"+emails[i]['id']+"'>";
-					inputsEmails += "\n<a href='#' class='glyphicon glyphicon-pencil'></a>";
+					inputsEmails += "\n<a href='#' class='glyphicon glyphicon-pencil' onclick=\"inputAlteracao('email','"+emails[i]['id']+"','"+emails[i]['email']+"');\"></a>";
 					inputsEmails += "\n<span id='email-"+emails[i]['id']+"'>";
 					inputsEmails += emails[i]['email'];
 					inputsEmails += "</span>";

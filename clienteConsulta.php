@@ -60,7 +60,7 @@
 		<div class="modal-dialog modal-md" role="document">
 			<div class="modal-content">
 
-				<div class='modal-header'>
+				<div class='modal-header' id='linhaNomeCliente'>
 					<img src="assets/img/user_silhueta.png" class='img-circle img-responsive col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3'>
 					<font id='nomeDoClienteTitulo' class="col-md-12 col-xs-12 text-center" style='font-weight: bold;'>Nome do Cliente</font>
 				</div>
@@ -74,8 +74,8 @@
 						</div>	
 					</div>
 					
-					<div class='row'> 
-						<input class='inputsDaTela input-xs col-md-8 col-md-offset-2 col-xs-12 text-center' style='border-bottom: 1px solid black;' type="text" id="registroCliente" maxlength='14' onkeypress='mascara(this,"###.###.###-##")' placeholder="CPF">
+					<div class='row' id='linhaRegistro'>
+						<input class='inputsDaTela input-xs col-md-4 col-md-offset-4 col-xs-12 text-center' style='border-bottom: 1px solid black;' type="text" id="registroCliente" maxlength='14' onkeypress='mascara(this,"###.###.###-##")' placeholder="CPF">
 					</div>
 
 					<div class='row' style='margin-top: 20px;'> 
@@ -155,7 +155,7 @@
 				</div>
 
 				<div class="modal-footer">
-					<a href='#' class='btn btn-success' id='botaoEsquerdo'>Sim</a>
+					<a href='#' class='btn btn-success' id='botaoEsquerdoAlterar'>Sim</a>
 					<a href='#' class='btn btn-danger' id='botaoDireita' onclick="$('#Aviso').modal('hide');">Não</a>
 				</div>
 			</div>
