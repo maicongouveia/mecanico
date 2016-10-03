@@ -121,6 +121,27 @@
 		</div>
 	</div>
 
+	<!-- Modal - Alterar - Input -->
+	<div class='modal fade' id='inputAlteracao' role='dialog'>
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+
+				<div class='modal-header'>
+					<center>Alterar</center>
+				</div>
+
+				<div class="modal-body" id='input' style='height: auto;'>
+					<input type="text" name='valor' id='valor' value='' style='width: 100%; text-align: center;'>
+				</div>
+
+				<div class="modal-footer">
+					<a href='#' class='btn btn-success' id='botaoEsquerdo'>Alterar</a>
+					<a href='#' class='btn btn-danger' id='botaoDireita' onclick="$('#inputAlteracao').modal('hide');">Cancelar</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Modal - Aviso -->
 	<div class='modal fade' id='Aviso' role='dialog'>
 		<div class="modal-dialog modal-sm" role="document">
@@ -135,7 +156,7 @@
 
 				<div class="modal-footer">
 					<a href='#' class='btn btn-success' id='botaoEsquerdo'>Sim</a>
-					<a href='#' class='btn btn-danger' id='botaoDireita' data-dimiss='modal'>Não</a>
+					<a href='#' class='btn btn-danger' id='botaoDireita' onclick="$('#Aviso').modal('hide');">Não</a>
 				</div>
 			</div>
 		</div>

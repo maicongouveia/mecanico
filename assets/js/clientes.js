@@ -127,7 +127,7 @@ function salvar(){
 	$('#ClienteDados').modal('hide');
 }
 
-function excluir(id){	
+function excluir(id){
 
 	var xhttp = new XMLHttpRequest();
 
@@ -139,8 +139,7 @@ function excluir(id){
 
     consultaClientes('');
 
-    $("#Aviso").modal('hide');
-    
+    $("#Aviso").modal('hide');   
 }
 
 function excluirItem(tipoId){
@@ -160,6 +159,36 @@ function excluirItem(tipoId){
     removerCampoAdicional("Linha-"+tipo+"-"+id);
 
     $("#Aviso").modal('hide');
+}
+
+function alterar(tipo,id){
+	var valor = document.getElementById('valor').value;
+
+	var xhttp = new XMLHttpRequest();
+
+	var url = 'clientes.php';
+	var params = 'operacao=alterar&tipo='+tipo+'&id='+id+'&valor='+valor;
+    xhttp.open("POST", url, true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(params);
+
+    if(tipo != 'registro'){
+    	document.getElementById(tipo+"-"+id).innerHTML = valor;
+    	document.getElementById(tipo+"-"+id).innerHTML = valor;
+    }
+    else{
+    	document.getElementById(tipo).innerHTML = valor;
+    }
+
+    $('#inputAlteracao').modal('hide');
+
+}
+
+function inputAlteracao(tipo,id,valor){
+	document.getElementById("valor").value=valor;
+	document.getElementById("botaoEsquerdo").setAttribute("onclick","alterar('"+tipo+"','"+id+"');");
+
+	abrirModal('#inputAlteracao');
 }
 
 function aviso(tipo,id){
@@ -262,7 +291,7 @@ function consultaCliente(id){
 				var inputsTelefone = "";
 				for(var i=0;i<telefones.length;i++){
 					inputsTelefone += "<div class='row col-md-6 col-md-offset-4' id='Linha-telefone-"+telefones[i]['id']+"'>";
-					inputsTelefone += "\n<a href='#' class='glyphicon glyphicon-pencil'></a>";
+					inputsTelefone += "\n<a href='#' class='glyphicon glyphicon-pencil' onclick=\"inputAlteracao('telefone','"+telefones[i]['id']+"','"+telefones[i]['telefone']+"')\"></a>";
 					inputsTelefone += "\n<span id='telefone-"+telefones[i]['id']+"'>";
 					inputsTelefone += telefones[i]['telefone'];
 					inputsTelefone += "</span>";

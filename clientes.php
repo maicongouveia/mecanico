@@ -163,9 +163,9 @@
 				}
 
 				echo json_encode($clientes);
-		}//Fim de Consultar Cliente
-		
 		}
+		
+		}//Fim de Consultar Cliente
 		//Excluir Cliente
 		else if($operacao == "excluir"){
 			if(isset($_POST['tipo'])){
@@ -214,8 +214,36 @@
 				    echo "Error: " . $sql . "<br>" . $conn->error;
 				}
 			}
-			
-		}//Fim Excluir Cliente		
+		}//Fim Excluir Cliente
+		//Editar Alguma merda
+		else if	($operacao == "alterar"){
+
+			if(isset($_POST['tipo'])){
+				$tipo = $_POST['tipo'];
+				if($tipo=="nomeCliente"){
+					$sql = "UPDATE clientes SET nome = '".$_POST['valor']."' WHERE id = '".$_POST['id']."' ";
+				}
+				else if($tipo=="registro"){
+					$sql = "UPDATE clientes SET registro = '".$_POST['valor']."' WHERE id = '".$_POST['id']."' ";
+				}
+				else if($tipo=="telefone"){
+					$sql = "UPDATE clientes_telefone SET telefone = '".$_POST['valor']."' WHERE id = '".$_POST['id']."' ";
+				}
+				else if($tipo=="endereco"){
+					$sql = "UPDATE clientes_endereco SET endereco = '".$_POST['valor']."' WHERE id = '".$_POST['id']."' ";
+				}
+				else if($tipo=="email"){
+					$sql = "UPDATE clientes_email SET email = '".$_POST['valor']."' WHERE id = '".$_POST['id']."' ";
+				}
+			}
+
+			//Executa a Query
+			if (!($conn->query($sql) === TRUE)){
+			    echo "Error: " . $sql . "<br>" . $conn->error;
+			}
+		}//Fim de Editar
+
+
 	}
 
 
